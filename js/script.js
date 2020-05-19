@@ -9,6 +9,31 @@ const optArticleSelector = '.post',
   optCloudClassPrefix = 'tag-size-',
   optAuthorsListSelector = '.list.authors';
 
+/* const opts = {
+    tagSizes: {
+      count: 5,
+      classPrefix: 'tag-size-',
+    },
+  };
+
+  const select = {
+    all: {
+      articles: '.post',
+      linksTo: {
+        tags: 'a[href^="#tag-"]',
+        authors: 'a[href^="#author-"]',
+      },
+    },
+    article: {
+      tags: '.post-tags .list',
+      author: '.post-author',
+    },
+    listOf: {
+      titles: '.titles',
+      tags: '.tags.list',
+      authors: '.authors.list',
+    },
+  }; */
 
 
 const titleClickHandler = function(event){
