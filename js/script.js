@@ -143,7 +143,7 @@ function calculateTagClass(count, params) {
   console.log(normalizedMax);
   const percentage = normalizedCount / normalizedMax;
   console.log(percentage);
-  const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+  const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1 );
   console.log(optCloudClassPrefix + classNumber);
   return optCloudClassPrefix + classNumber;
 }
@@ -180,7 +180,7 @@ function generateTags(){
     for(let tag of articleTagsArray){
 
       /* [DONE]generate HTML of the link */
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
 
       /* [DONE]add generated code to html variable */
       html = html + linkHTML;
@@ -217,9 +217,9 @@ function generateTags(){
 
     /* [NEW] generate code of a link and add it to allTagsHTML */
     //allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + '</a> (' + allTags[tag] + ')</li>';
-    const tagLinkHTML = '<li><a href="#tag=' + tag + '" class"' + calculateTagClass(allTags[tag], tagsParams) + '"' + '">' + tag + '</a></li>';
+    const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '"' + '">' + tag + '</a></li>';
     allTagsHTML += tagLinkHTML;
-    console.log('tagLinkHTML: ', tagLinkHTML);
+    console.log('tagLinkHTML:', tagLinkHTML);
   /* [NEW] END LOOP: for each tag in allTags */
   }
 
@@ -310,7 +310,7 @@ function generateAuthors() {
     const articleAuthor = article.getAttribute('data-author');
 
     /* generate HTML of the link */
-    const authorLinkHTML = '<li><a href="#' + articleAuthor + '"><span>' + articleAuthor + '</span></a></li>';
+    const authorLinkHTML = '<li><a href="#' + articleAuthor + '">' + articleAuthor + '</a></li>';
 
     /* add generated code to HTML variable */
     html = html + authorLinkHTML;
