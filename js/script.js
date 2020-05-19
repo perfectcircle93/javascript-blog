@@ -126,9 +126,13 @@ for(let link of links){
 function calculateTagsParams(tags) {
   const params = { max: 0 , min: 999999 };
   for(let tag in tags){
-    params.max = Math.max(tags[tag], params.max);
-    params.min = Math.min(tags[tag], params.min);
     console.log(tag + ' is used ' + tags[tag] + ' times');
+    if(tags[tag] > params.max) {
+      params.max = tags[tag];
+    }
+    if(tags[tag] < params.min) {
+      params.min = tags[tag];
+    }
   }
   return params;
 }
@@ -143,7 +147,7 @@ function calculateTagClass(count, params) {
   console.log(normalizedMax);
   const percentage = normalizedCount / normalizedMax;
   console.log(percentage);
-  const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1 );
+  const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
   console.log(optCloudClassPrefix + classNumber);
   return optCloudClassPrefix + classNumber;
 }
@@ -152,15 +156,15 @@ function calculateTagClass(count, params) {
 
 
 
-function generateTags(){
+function generateTags() {
   /*[NEW] create a new variable allTags with an empty array */
   let allTags = {};
-
+  console.log(allTags);
   /* [DONE]find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
-
+  console.log(articles);
   /* [DONE]START LOOP: for every article: */
-  for(let article of articles){
+  for(let article of articles) {
 
     /* [DONE]find tags wrapper */
     const tagsWrapper = article.querySelector(optArticleTagsSelector);
@@ -177,11 +181,11 @@ function generateTags(){
     console.log(articleTagsArray);
 
     /* [DONE]START LOOP: for each tag */
-    for(let tag of articleTagsArray){
+    for(let tag of articleTagsArray) {
 
       /* [DONE]generate HTML of the link */
       const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-
+      console.log(linkHTML);
       /* [DONE]add generated code to html variable */
       html = html + linkHTML;
 
@@ -201,8 +205,9 @@ function generateTags(){
 
   /*[DONE] END LOOP: for every article: */
   }
+
   /*[NEW] find list of tags in right column */
-  const tagList = document.querySelector(optTagsListSelector);
+  const tagList = document.querySelector(optTagsListSelector );
 
   /*[NEW] add html from allTags to tagList */
   //tagList.innerHTML = allTags.join(' ');

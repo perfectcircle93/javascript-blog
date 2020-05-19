@@ -58,6 +58,10 @@ body {
   border-radius: 5px;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Logo */
 .logo {
   font-family: "Sacramento", cursive;
@@ -119,5 +123,32 @@ body {
 
 .post-tags li {
   margin-right: 10px;
+}
+
+/* Cloud */
+.tag-size-1 {
+  font-size: 75%;
+}
+
+.tag-size-2 {
+  font-size: 100%;
+}
+
+.tag-size-3 {
+  font-size: 125%;
+}
+
+.tag-size-4 {
+  font-size: 150%;
+}
+
+.tag-size-5 {
+  font-size: 175%;
+}
+
+.tags li {
+  display: inline-block;
+  margin: 0 5px;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
