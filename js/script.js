@@ -44,7 +44,7 @@ const optArticleSelector = '.post',
   }; */
 
 
-const titleClickHandler = function(event){
+const titleClickHandler = function (event) {
   event.preventDefault();
   const clickedElement = this;
   console.log('Link was clicked!');
@@ -372,22 +372,27 @@ function generateAuthors() {
     console.log(authorWrapper);
 
     /* [DONE]make html variable with empty string */
-    //let html = '';
+    let html = '';
 
     /* [DONE] get authors from data-author attribute */
     const articleAuthor = article.getAttribute('data-author');
 
     /* [DONE] generate HTML of the link */
     //const authorLinkHTML = '<li><a href="#' + articleAuthor + '">' + articleAuthor + '</a></li>';
-    const linkHTMLData = { id: articleAuthor };
+    const linkHTMLData = {
+      id: authorWrapper,
+      title: articleAuthor
+    };
     const linkHTML = templates.authorLink(linkHTMLData);
+    console.log(linkHTML);
 
     /* [DONE] add generated code to HTML variable */
+    authorWrapper.insertAdjacentHTML('beforeEnd', html);
     //html = html + authorLinkHTML;
-    authorWrapper.insertAdjacentHTML('beforeEnd', linkHTML);
 
     /* [DONE]insert HTML of all the links into the author wrapper */
     //authorWrapper.innerHTML = html;
+
 
     /* [NEW] check if this link is NOT already in allAuthors */
     if (!allAuthors[articleAuthor]) {
